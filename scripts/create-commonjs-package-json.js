@@ -5,7 +5,7 @@
 import fs from 'fs'; // 'node:fs'
 
 fs.writeFileSync('./dist/package.json', JSON.stringify({
-  name: 'unzipper/dist',
+  name: 'unzipper-esm/dist',
   type: 'commonjs',
   private: true
 }, null, 2), 'utf8');

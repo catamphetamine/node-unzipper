@@ -1,5 +1,5 @@
 {
-  "name": "unzipper",
+  "name": "unzipper-esm",
   "version": "0.13.0",
   "type": "module",
   "main": "./index.cjs",
@@ -32,7 +32,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ZJONSSON/node-unzipper.git"
+    "url": "https://github.com/catamphetamine/node-unzipper.git"
   },
   "license": "MIT",
   "dependencies": {
