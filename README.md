@@ -23,7 +23,7 @@ This is a [fork](https://github.com/ZJONSSON/node-unzipper/pull/356) of the orig
 * Replaced dynamic `require("@aws-sdk/client-s3")` with optional predefined global variables `global.GetObjectCommand` and `global.HeadObjectCommand`.
   * This fixes the long-present [bug](https://github.com/ZJONSSON/node-unzipper/issues/330) when bundlers can't bundle an app that uses `unzipper` package because of that dynamic `require()` statement.
 * Replaced package `duplexer2` with a copy of `duplexer3`.
-* Replaced package `bluebird` with a combination of native `Promise`s and `p-map`.
+* Replaced package `bluebird` with a combination of native `Promise`s and a copy of `p-map`.
 * Removed package `fs-extra`.
 * Removed unnecessary use of `__dirname` variable in tests.
 

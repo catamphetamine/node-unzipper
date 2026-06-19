@@ -1,3 +1,8 @@
+0.13.2 / 19.06.2026
+===================
+
+* Copy-pasted `p-map` source code to fix CommonJS [issue](https://gitlab.com/catamphetamine/read-excel-file/-/work_items/113).
+
 0.13.1 / 19.06.2026
 ===================
 
@@ -12,7 +17,7 @@
   * The legacy CommonJS exports are still available.
 * Added TypeScript definitions by copy-pasting them from `DefinitelyTyped`.
 * Replaced package `duplexer2` with a copy of `duplexer3`.
-* Replaced package `bluebird` with a combination of native `Promise`s and `p-map`.
+* Replaced package `bluebird` with a combination of native `Promise`s and a copy of `p-map`.
 * Removed package `fs-extra`.
 * Removed unnecessary use of `__dirname` variable in tests.
 * Replaced dynamic `require("@aws-sdk/client-s3")` with optionally-preset `global.GetObjectCommand` and `global.HeadObjectCommand` variables.
