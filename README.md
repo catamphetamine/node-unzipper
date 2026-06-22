@@ -2,35 +2,32 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 <!-- [![code coverage](https://zjonsson.github.io/node-unzipper/badge.svg)](https://zjonsson.github.io/node-unzipper/) -->
 
-[npm-image]: https://img.shields.io/npm/v/unzipper-esm.svg
-[npm-url]: https://npmjs.org/package/unzipper-esm
+[npm-image]: https://img.shields.io/npm/v/unzipper.svg
+[npm-url]: https://npmjs.org/package/unzipper
 <!-- [travis-image]: https://api.travis-ci.org/ZJONSSON/node-unzipper.png?branch=master -->
 <!-- [travis-url]: https://travis-ci.org/ZJONSSON/node-unzipper?branch=master -->
-[downloads-image]: https://img.shields.io/npm/dm/unzipper-esm.svg
-[downloads-url]: https://npmjs.org/package/unzipper-esm
+[downloads-image]: https://img.shields.io/npm/dm/unzipper.svg
+[downloads-url]: https://npmjs.org/package/unzipper
 <!-- [coverage-image]: https://3tjjj5abqi.execute-api.us-east-1.amazonaws.com/prod/node-unzipper/badge -->
 <!-- [coverage-url]: https://3tjjj5abqi.execute-api.us-east-1.amazonaws.com/prod/node-unzipper/url -->
 
-# unzipper-esm
+[![code coverage](https://zjonsson.github.io/node-unzipper/badge.svg)](https://zjonsson.github.io/node-unzipper/)
 
-This is a [fork](https://github.com/ZJONSSON/node-unzipper/pull/356) of the original `unzipper` package that fixes some issues:
+[npm-image]: https://img.shields.io/npm/v/unzipper.svg
+[npm-url]: https://npmjs.org/package/unzipper
+[travis-image]: https://api.travis-ci.org/ZJONSSON/node-unzipper.png?branch=master
+[travis-url]: https://travis-ci.org/ZJONSSON/node-unzipper?branch=master
+[downloads-image]: https://img.shields.io/npm/dm/unzipper.svg
+[downloads-url]: https://npmjs.org/package/unzipper
+[coverage-image]: https://3tjjj5abqi.execute-api.us-east-1.amazonaws.com/prod/node-unzipper/badge
+[coverage-url]: https://3tjjj5abqi.execute-api.us-east-1.amazonaws.com/prod/node-unzipper/url
 
-* The fork is still compatible with Node.js 8.
-* Refactored the code from CommonJS (`require()`) to ESM (`import`).
-  * The legacy CommonJS exports are still available.
-* Added TypeScript definitions by copy-pasting them from `DefinitelyTyped`.
-  * This allows using this package in TypeScript applications.
-* Replaced dynamic `require("@aws-sdk/client-s3")` with optional predefined global variables `global.GetObjectCommand` and `global.HeadObjectCommand`.
-  * This fixes the long-present [bug](https://github.com/ZJONSSON/node-unzipper/issues/330) when bundlers can't bundle an app that uses `unzipper` package because of that dynamic `require()` statement.
-* Replaced package `duplexer2` with a copy of `duplexer3`.
-* Replaced package `bluebird` with a combination of native `Promise`s and a copy of `p-map`.
-* Removed package `fs-extra`.
-* Removed unnecessary use of `__dirname` variable in tests.
+# unzipper
 
 ## Installation
 
 ```bash
-$ npm install unzipper-esm
+$ npm install unzipper
 ```
 
 ## Open methods
@@ -57,7 +54,7 @@ Returns a Promise to the central directory information with methods to extract i
 Here is a simple example of opening up a zip file, printing out the directory information and then extracting the first file inside the zipfile to disk:
 
 ```js
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 
 async function main() {
   const directory = await Open.file('path/to/archive.zip');
@@ -77,7 +74,7 @@ main();
 If you want to extract all files from the zip file, the directory object supplies an extract method.   Here is a quick example:
 
 ```js
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 
 async function main() {
   const directory = await Open.file('path/to/archive.zip');
@@ -110,7 +107,7 @@ main();
 This function takes a second parameter which can either be a string containing the `url` to request, or an `options` object to invoke the supplied `request` library with. This can be used when other request options are required, such as custom headers or authentication to a third party service.
 
 ```js
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 import { requestWithJWT } from 'google-oauth-jwt';
 
 const request = requestWithJWT();
@@ -140,7 +137,7 @@ This function will return a Promise to the central directory information from a 
 Example:
 
 ```js
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 import AWS from 'aws-sdk';
 
 const s3Client = AWS.S3(config);
@@ -167,7 +164,7 @@ If you already have the zip file in-memory as a buffer, you can open the content
 Example:
 
 ```js
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 
 // never use readFileSync - only used here to simplify the example
 const buffer = fs.readFileSync('path/to/arhive.zip');
@@ -190,7 +187,7 @@ Example:
 
 ```js
 
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 
 // Custom source implementation for reading a zip file from Google Cloud Storage
 import { Storage } from '@google-cloud/storage';
@@ -229,7 +226,7 @@ The directory object returned from `Open.[method]` provides an `extract` method 
 Example (with concurrency of 5):
 
 ```js
-import { Open } from 'unzipper-esm';
+import { Open } from 'unzipper';
 
 const directory = await Open.file('path/to/archive.zip');
 directory.extract({path: '/extraction/path', concurrency: 5});
@@ -258,7 +255,7 @@ There are no added compiled dependencies - inflation is handled by node.js's bui
 
 ### Extract to a directory
 ```js
-import { Extract } from 'unzipper-esm';
+import { Extract } from 'unzipper';
 
 fs.createReadStream('path/to/archive.zip')
   .pipe(Extract({ path: 'output/path' }));
@@ -284,7 +281,7 @@ entry.autodrain().on('error' => handleError);
 Here is a quick example:
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 
 fs.createReadStream('path/to/archive.zip')
   .pipe(Parse())
@@ -303,7 +300,7 @@ fs.createReadStream('path/to/archive.zip')
 and the same example using async iterators:
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 
 const zip = fs.createReadStream('path/to/archive.zip').pipe(Parse({forceStream: true}));
 for await (const entry of zip) {
@@ -325,7 +322,7 @@ If you `pipe` from unzipper the downstream components will receive each `entry` 
 Example using `stream.Transform`:
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 import { Transform } from 'stream';
 
 fs.createReadStream('path/to/archive.zip')
@@ -350,7 +347,7 @@ fs.createReadStream('path/to/archive.zip')
 Example using [etl](https://www.npmjs.com/package/etl):
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 
 fs.createReadStream('path/to/archive.zip')
   .pipe(Parse())
@@ -372,7 +369,7 @@ fs.createReadStream('path/to/archive.zip')
 Example:
 
 ```js
-import { ParseOne } from 'unzipper-esm';
+import { ParseOne } from 'unzipper';
 
 fs.createReadStream('path/to/archive.zip')
   .pipe(ParseOne())
@@ -384,7 +381,7 @@ fs.createReadStream('path/to/archive.zip')
 While the recommended strategy of consuming the unzipped contents is using streams, it is sometimes convenient to be able to get the full buffered contents of each file .  Each `entry` provides a `.buffer` function that consumes the entry by buffering the contents into memory and returning a promise to the complete buffer.
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 
 fs.createReadStream('path/to/archive.zip')
   .pipe(Parse())
@@ -406,7 +403,7 @@ The parser emits `finish` and `error` events like any other stream.  The parser 
 Example:
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 
 fs.createReadStream('path/to/archive.zip')
   .pipe(Parse())
@@ -421,7 +418,7 @@ Archives created by legacy tools usually have filenames encoded with IBM PC (Win
 You can decode filenames with preferred character set:
 
 ```js
-import { Parse } from 'unzipper-esm';
+import { Parse } from 'unzipper';
 import il from 'iconv-lite';
 
 fs.createReadStream('path/to/archive.zip')
