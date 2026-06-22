@@ -1,16 +1,5 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
-<!-- [![code coverage](https://zjonsson.github.io/node-unzipper/badge.svg)](https://zjonsson.github.io/node-unzipper/) -->
-
-[npm-image]: https://img.shields.io/npm/v/unzipper.svg
-[npm-url]: https://npmjs.org/package/unzipper
-<!-- [travis-image]: https://api.travis-ci.org/ZJONSSON/node-unzipper.png?branch=master -->
-<!-- [travis-url]: https://travis-ci.org/ZJONSSON/node-unzipper?branch=master -->
-[downloads-image]: https://img.shields.io/npm/dm/unzipper.svg
-[downloads-url]: https://npmjs.org/package/unzipper
-<!-- [coverage-image]: https://3tjjj5abqi.execute-api.us-east-1.amazonaws.com/prod/node-unzipper/badge -->
-<!-- [coverage-url]: https://3tjjj5abqi.execute-api.us-east-1.amazonaws.com/prod/node-unzipper/url -->
-
 [![code coverage](https://zjonsson.github.io/node-unzipper/badge.svg)](https://zjonsson.github.io/node-unzipper/)
 
 [npm-image]: https://img.shields.io/npm/v/unzipper.svg
